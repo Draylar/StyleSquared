@@ -67,6 +67,23 @@ public class CalculatorManager {
         currentEquation += "^";
     }
 
+    // add pi
+    public void pi() {
+        currentEquation += "π";
+    }
+
+    public void mod() {
+        currentEquation += "%";
+    }
+
+    public void log10() {
+        currentEquation += "log10(";
+    }
+
+    public void absoluteValue() {
+        currentEquation += "abs(";
+    }
+
     // compute when the enter key is pressed; also updates the answer field to the result.
     public void finish() {
         Expression e = new ExpressionBuilder(currentEquation).build();
