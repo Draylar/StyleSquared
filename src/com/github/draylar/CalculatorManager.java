@@ -30,26 +30,21 @@ public class CalculatorManager {
 
     // the operator functions just type in their respective symbol when called.
     public void add() {
-        currentEquation += " ";
         currentEquation += "+";
     }
     public void subtract() {
-        currentEquation += " ";
         currentEquation += "-";
     }
     public void divide() {
-        currentEquation += " ";
         currentEquation += "/";
     }
     public void multiply() {
-        currentEquation += " ";
         currentEquation += "*";
     }
 
     // adds a bracket. If the argument is true, '(' is inputted; otherwise a ')' is used.
     public void bracket(boolean isLeft) {
         if(isLeft) {
-            currentEquation += " "; // add a space before the left bracket
             currentEquation += "(";
         } else currentEquation += ")";
     }
@@ -64,7 +59,6 @@ public class CalculatorManager {
 
     // starts the square root function. we can assume users are smart enough to add an ending parenthesis, although later on it might auto-complete.
     public void root() {
-        currentEquation += " ";
         currentEquation += "sqrt(";
     }
 
