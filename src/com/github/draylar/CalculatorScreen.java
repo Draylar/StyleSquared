@@ -47,8 +47,10 @@ public class CalculatorScreen extends GridPane {
 
     // ----------------- MECHANICS ------------------ //
 
-    // set up the grid which we put our buttons into
-    public void configureGrid() {
+    /**
+     * Configure the root GridPane with columns.
+     */
+    private void configureGrid() {
         // set up columns
         for(int i = 0; i < Settings.getInstance().CALCULATOR_GRID_WIDTH; i++) {
             ColumnConstraints constraints = new ColumnConstraints();
@@ -64,8 +66,11 @@ public class CalculatorScreen extends GridPane {
         }
     }
 
-    // create the buttons for the numbers
-    public void addNumberButtons() {
+
+    /**
+     * Adds the number buttons to the root GridPane.
+     */
+    private void addNumberButtons() {
         for(int i = 0; i < 10; i++) {
             NumberButton numberButton = new NumberButton(i);
 
@@ -87,16 +92,20 @@ public class CalculatorScreen extends GridPane {
         this.add(pi, 2, 5);
     }
 
-    // who doesn't like hamburgers? I prefer a juicy lucy with bacon and american cheese on top-- nothing else.
-    // really though, this adds the hamburger button to the top left of the screen.
-    // todo: add click event to hamburger
-    public void addHamburger() {
+
+    /**
+     * Adds the hamburger menu to the top right of the GridPane.
+     */
+    private void addHamburger() {
         JFXHamburger menuButton = new JFXHamburger();
         this.add(menuButton, 0, 0, 1, 1);
     }
 
-    // create buttons for operators
-    public void addOperations() {
+
+    /**
+     * Adds the operator buttons (+, -, *, /, etc). to the GridPane.
+     */
+    private void addOperations() {
         Enter enter = new Enter();
         enter.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.add(enter, 3, 9);
@@ -122,9 +131,11 @@ public class CalculatorScreen extends GridPane {
         this.add(mod, 3, 5);
     }
 
-    // yes, I'm aware clear and abs aren't functions, and log might not be either, but I can't think of a different name for this function.
-    // todo: rename function to make more sense
-    public void addFunctions() {
+
+    /**
+     * Adds function buttons (abs, log, and some other stuff) to the GridPane.
+     */
+    private void addFunctions() {
         // add the clear button which clears the current answer & equation
         Clear clear = new Clear();
         clear.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
@@ -146,8 +157,11 @@ public class CalculatorScreen extends GridPane {
         this.add(root, 0, 7);
     }
 
-    // add extra buttons such as brackets
-    public void addCharacters() {
+
+    /**
+     * Adds special characters (braces, decimals) to the GridPane.
+     */
+    private void addCharacters() {
         Bracket leftBracket = new Bracket(true);
         leftBracket.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.add(leftBracket, 0, 9);
@@ -166,8 +180,11 @@ public class CalculatorScreen extends GridPane {
         this.add(square, 0, 6);
     }
 
-    // add the equation and answer labels near the top
-    public void addTopLabels() {
+
+    /**
+     * Adds the labels for the current equation and result field to the GridPane.
+     */
+    private void addTopLabels() {
         equationField = new Label();
         equationField.setStyle("-fx-font-size: 60px"); // debug purposes
         GridPane.setHalignment(equationField, HPos.RIGHT);
@@ -179,8 +196,10 @@ public class CalculatorScreen extends GridPane {
         this.add(resultField, 0, 3, 5, 1);
     }
 
-    // updates the answer field to grab the current equation from the CalculatorManager.
-    // is called when most buttons are pressed.
+
+    /**
+     * Updates the equation field-- grabs it from CalculatorManager. Is called when a button is pressed.
+     */
     public void updateEquation() {
         equationField.setText(CalculatorManager.getInstance().getCurrentEquation()); // set text
         double width = equationField.getLayoutBounds().getWidth();
@@ -191,7 +210,10 @@ public class CalculatorScreen extends GridPane {
         }
     }
 
-    // update the answer label.
+
+    /**
+     * Updates the answer field.
+     */
     public void updateAnswer() {
         resultField.setText(CalculatorManager.getInstance().getCurrentAnswer());
     }
@@ -199,7 +221,10 @@ public class CalculatorScreen extends GridPane {
 
     // ------------------- TOP BAR STYLE ------------------------ //
 
-    public void configureTitleBar() {
+    /**
+     * Configures the custom title bar.
+     */
+    private void configureTitleBar() {
         TitleControls titleControls = new TitleControls();
         titleControls.setMaxHeight(30);
         GridPane.setValignment(titleControls, VPos.TOP);

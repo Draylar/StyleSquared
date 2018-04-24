@@ -23,82 +23,142 @@ public class CalculatorManager {
     private String currentEquation = "";
     private String currentAnswer = "";
 
-    // add to the equation when a button is pressed
-    public void pressNumber(int number) {
-        currentEquation += number;
-    }
+    /**
+     * Adds the arguments' number to the current equation.
+     * @param number
+     */
+    public void pressNumber(int number) { currentEquation += number; }
 
-    // the operator functions just type in their respective symbol when called.
-    public void add() {
-        currentEquation += "+";
-    }
-    public void subtract() {
-        currentEquation += "-";
-    }
+
+    /**
+     * Adds the addition operator (+) to the current equation.
+     */
+    public void add() { currentEquation += "+"; }
+
+
+    /**
+     * Adds the subtraction operator (-) to the current equation.
+     */
+    public void subtract() { currentEquation += "-"; }
+
+
+    /**
+     * Adds the division operator (/) to the current equation.
+     */
     public void divide() {
         currentEquation += "/";
     }
+
+
+    /**
+     * Adds the multiplication operator (*) to the current equation.
+     */
     public void multiply() {
         currentEquation += "*";
     }
 
-    // adds a bracket. If the argument is true, '(' is inputted; otherwise a ')' is used.
+
+    /**
+     * Adds a bracket to the current equation. If isLeft is true, the bracket is (, otherwise it is ).
+     * @param isLeft
+     */
     public void bracket(boolean isLeft) {
         if(isLeft) {
             currentEquation += "(";
         } else currentEquation += ")";
     }
 
-    // adds a decimal. only works if the previous char is a number.
+
     // todo: change how this works; if the previous char is not a number, add a space and a zero before the decimal.
+    /**
+     * Adds a decimal to the current equation.
+     */
     public void decimal() {
         if(currentEquation.charAt(currentEquation.length() - 1) >= '0' && currentEquation.charAt(currentEquation.length() - 1) <= '9') { // if the latest character is a number
             currentEquation += ".";
         }
     }
 
-    // starts the square root function. we can assume users are smart enough to add an ending parenthesis, although later on it might auto-complete.
+
+    /**
+     * Adds the start of the square root function, 'sqrt(', to the current equation.
+     */
     public void root() {
         currentEquation += "sqrt(";
     }
 
-    // adds a square root symbol. later on, we might replace the ^ symbol (and the exponent) with a small number at the top (like you would normally see it).
+
+    /**
+     * Adds the square symbol, '^', to the current equation.
+     */
     public void square() {
         currentEquation += "^";
     }
 
-    // add pi
+
+    /**
+     * Adds the pi operator, 'π', to the current equation.
+     */
     public void pi() {
         currentEquation += "π";
     }
 
+
+    /**
+     * Adds the modulus operator, '%', to the current equation.
+     */
     public void mod() {
         currentEquation += "%";
     }
 
+
+    /**
+     * Adds the start of the log10 function, "log10(", to the current equation.
+     */
     public void log10() {
         currentEquation += "log10(";
     }
 
+
+    /**
+     * Adds the start of the absolute value function, "abs(", to the current equation.
+     */
     public void absoluteValue() {
         currentEquation += "abs(";
     }
 
-    // compute when the enter key is pressed; also updates the answer field to the result.
+
+    /**
+     * Computes the current equation and updates the answer field to the new results.
+     */
     public void finish() {
         Expression e = new ExpressionBuilder(currentEquation).build();
         double result = e.evaluate();
         currentAnswer = Double.toString(result);
     }
 
-    // clear everything
+
+    /**
+     * Clears the current equation and answer.
+     */
     public void clear() {
         currentEquation = "";
         currentAnswer = "";
     }
 
+
+    /**
+     * Retrieves the current equation.
+     * @return
+     */
     public String getCurrentEquation() {
         return currentEquation;
     }
+
+
+    /**
+     * Retrieves the current answer.
+     * @return
+     */
     public String getCurrentAnswer() { return currentAnswer; }
 }

@@ -23,8 +23,11 @@ public class TitleControls extends HBox {
         this.getChildren().addAll(minimize, expand, close);
     }
 
-    // configure look and feel
-    public void setStyle() {
+
+    /**
+     * Configures style of the pane.
+     */
+    private void setStyle() {
         close.setPrefWidth(25);
         minimize.setPrefWidth(25);
         expand.setPrefWidth(25);
@@ -41,8 +44,11 @@ public class TitleControls extends HBox {
         expand.setText("☐");
     }
 
-    // make it so dragging the top bar moves the window
-    public void configurePresses() {
+
+    /**
+     * Configures button presses.
+     */
+    private void configurePresses() {
         final Delta dragDelta = new Delta();
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override

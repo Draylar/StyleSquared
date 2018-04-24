@@ -1,7 +1,6 @@
 package com.github.draylar.buttons.operations;
 
 import com.github.draylar.CalculatorManager;
-import com.github.draylar.CalculatorScreen;
 import com.github.draylar.Settings;
 import com.github.draylar.buttons.AbstractButton;
 import javafx.event.EventHandler;
@@ -19,6 +18,10 @@ public class Clear extends AbstractButton {
         this.setStyle("-fx-background-radius: 0px; -fx-background-color: " + Settings.getInstance().MIDDLE_COLOR);
     }
 
+
+    /**
+     * Configures click events.
+     */
     public void configureClick() {
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override

@@ -1,10 +1,8 @@
 package com.github.draylar.buttons.operations;
 
 import com.github.draylar.CalculatorManager;
-import com.github.draylar.CalculatorScreen;
 import com.github.draylar.Settings;
 import com.github.draylar.buttons.AbstractButton;
-import com.jfoenix.controls.JFXButton;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -20,7 +18,10 @@ public class Multiply extends AbstractButton {
         this.setStyle("-fx-background-radius: 0px; -fx-background-color: " + Settings.getInstance().LIGHT_COLOR);
     }
 
-    // setup click events for enter
+
+    /**
+     * Configures click events.
+     */
     public void configureClick() {
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override

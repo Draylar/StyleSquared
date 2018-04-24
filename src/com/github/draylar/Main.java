@@ -26,7 +26,16 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Returns the current stage being used.
+     * @return
+     */
     public static Stage getStage() { return stage; }
+
+    /**
+     * Returns the current scene.
+     * @return
+     */
     public static Scene getScene() { return scene; }
 
     public static void main(String[] args) {
