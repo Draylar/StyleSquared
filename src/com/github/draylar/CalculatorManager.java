@@ -25,7 +25,7 @@ public class CalculatorManager {
 
     /**
      * Adds the arguments' number to the current equation.
-     * @param number
+     * @param number the number that was pressed
      */
     public void pressNumber(int number) { currentEquation += number; }
 
@@ -60,7 +60,7 @@ public class CalculatorManager {
 
     /**
      * Adds a bracket to the current equation. If isLeft is true, the bracket is (, otherwise it is ).
-     * @param isLeft
+     * @param isLeft is the bracket a left bracket?
      */
     public void bracket(boolean isLeft) {
         if(isLeft) {
@@ -149,7 +149,7 @@ public class CalculatorManager {
 
     /**
      * Retrieves the current equation.
-     * @return
+     * @return the current equation
      */
     public String getCurrentEquation() {
         return currentEquation;
@@ -158,7 +158,7 @@ public class CalculatorManager {
 
     /**
      * Retrieves the current answer.
-     * @return
+     * @return the current answer
      */
     public String getCurrentAnswer() { return currentAnswer; }
 }

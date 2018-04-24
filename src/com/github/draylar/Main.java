@@ -11,8 +11,26 @@ public class Main extends Application {
     private static Stage stage = new Stage();
     private static Scene scene;
 
+    /**
+     * Returns the current stage being used.
+     *
+     * @return the current stage
+     */
+    public static Stage getStage() {
+        return stage;
+    }
+
+    /**
+     * Returns the current scene.
+     *
+     * @return the current scene
+     */
+    public static Scene getScene() {
+        return scene;
+    }
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
         // configure stage & scene. The scene takes in the default calculator screen as well as the width and height from our settings class.
         stage = primaryStage;
         scene = new Scene(CalculatorScreen.getInstance(), Settings.getInstance().SCREEN_WIDTH, Settings.getInstance().SCREEN_HEIGHT);
@@ -25,18 +43,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    /**
-     * Returns the current stage being used.
-     * @return
-     */
-    public static Stage getStage() { return stage; }
-
-    /**
-     * Returns the current scene.
-     * @return
-     */
-    public static Scene getScene() { return scene; }
 
     public static void main(String[] args) {
         launch(args);

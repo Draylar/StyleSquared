@@ -1,7 +1,6 @@
 package com.github.draylar;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -13,9 +12,9 @@ import javafx.scene.layout.HBox;
 public class TitleControls extends HBox {
 
     // 3 buttons on the top-right of the window
-    JFXButton close = new JFXButton();
-    JFXButton minimize = new JFXButton();
-    JFXButton expand = new JFXButton();
+    private JFXButton close = new JFXButton();
+    private JFXButton minimize = new JFXButton();
+    private JFXButton expand = new JFXButton();
 
     public TitleControls() {
         setStyle();
@@ -50,20 +49,14 @@ public class TitleControls extends HBox {
      */
     private void configurePresses() {
         final Delta dragDelta = new Delta();
-        this.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                dragDelta.x = Main.getStage().getX() - event.getScreenX();
-                dragDelta.y = Main.getStage().getY() - event.getScreenY();
-            }
+        this.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+            dragDelta.x = Main.getStage().getX() - e.getScreenX();
+            dragDelta.y = Main.getStage().getY() - e.getScreenY();
         });
 
-        this.addEventHandler(MouseEvent.MOUSE_DRAGGED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Main.getStage().setX(event.getScreenX() + dragDelta.x);
-                Main.getStage().setY(event.getScreenY() + dragDelta.y);
-            }
+        this.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
+            Main.getStage().setX(e.getScreenX() + dragDelta.x);
+            Main.getStage().setY(e.getScreenY() + dragDelta.y);
         });
     }
 }
