@@ -202,10 +202,19 @@ public class CalculatorScreen extends GridPane {
      */
     public void updateEquation() {
         equationField.setText(CalculatorManager.getInstance().getCurrentEquation()); // set text
+        updateFontSize();
+    }
+
+
+    /**
+     * Updates the font size to fit with the width of the screen. Should be called when something that changes the equation/answer/screen-width happens.
+     */
+    public void updateFontSize() {
         double width = equationField.getLayoutBounds().getWidth();
         if(width >= Settings.getInstance().SCREEN_WIDTH * .90) { // resize font if needed
-            System.out.println(width);
             System.out.println(Settings.getInstance().SCREEN_WIDTH);
+            System.out.println(width);
+            System.out.println("");
             equationField.setStyle("-fx-font-size: " + equationField.getFont().getSize() * .90);
         }
     }

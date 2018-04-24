@@ -39,6 +39,8 @@ public class Main extends Application {
         // todo: add custom title bar functionality.
         // primaryStage.initStyle(StageStyle.UNDECORATED);
 
+        configureSizeListener();
+
         primaryStage.setTitle("Style Squared");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -46,5 +48,19 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+
+    /**
+     * Sets up a listener which updates the settings based on window resize.
+     */
+    public void configureSizeListener() {
+        stage.widthProperty().addListener((observable, oldValue, newValue) -> {
+            Settings.getInstance().SCREEN_WIDTH = newValue.intValue();
+        });
+
+        stage.heightProperty().addListener((observable, oldValue, newValue) -> {
+            Settings.getInstance().SCREEN_HEIGHT = newValue.intValue();
+        });
     }
 }
