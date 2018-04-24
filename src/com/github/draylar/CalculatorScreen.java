@@ -89,7 +89,7 @@ public class CalculatorScreen extends GridPane {
         // todo: find a better spot for adding the pi button
         Pi pi = new Pi();
         pi.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        this.add(pi, 2, 5);
+        this.add(pi, 1, 5);
     }
 
 
@@ -128,7 +128,7 @@ public class CalculatorScreen extends GridPane {
 
         Mod mod = new Mod();
         mod.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        this.add(mod, 3, 5);
+        this.add(mod, 2, 5);
     }
 
 
@@ -141,15 +141,15 @@ public class CalculatorScreen extends GridPane {
         clear.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.add(clear, 4, 5);
 
+        // add delete button which removes the last char from the current equation
+        Delete delete = new Delete();
+        delete.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        this.add(delete, 3, 5);
+
         // add the absolute value button which starts the absolute value function
         AbsoluteValue abs = new AbsoluteValue();
         abs.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        this.add(abs, 1, 5);
-
-        // add log button
-        Log log = new Log();
-        log.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        this.add(log, 0, 5);
+        this.add(abs, 0, 5);
 
         // root button which types "sqrt("
         Root root = new Root();

@@ -157,6 +157,16 @@ public class CalculatorManager {
 
 
     /**
+     * Sets the current equation to the inputted String.
+     *
+     * @param equation the equation you want to set
+     */
+    public void setCurrentEquation(String equation) {
+        currentEquation = equation;
+    }
+
+
+    /**
      * Retrieves the current answer.
      * @return the current answer
      */
