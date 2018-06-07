@@ -7,4 +7,4 @@
 Despite the claim to customization and style, the calculator is still in a beta stage. 
 Style will come soon, and customization will come soon after soon.
 
-JFoenix & exp4j are currently required to run this. They will be added before the first beta jar release is done.
+The application jar can be found in the 'release' tab near the top of this page.
